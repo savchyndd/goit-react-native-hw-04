@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
@@ -13,107 +12,88 @@ import SvgLogOut from '../../assets/svg/SvgLogOut';
 import SvgGrid from '../../assets/svg/SvgGrid';
 import SvgPlus from '../../assets/svg/SvgPlus';
 import SvgUser from '../../assets/svg/SvgUser';
+import { TouchableOpacity } from 'react-native';
 
 const ButtomTabs = createBottomTabNavigator();
 
 const Home = () => {
-  const [isCreatePost, setIsCreatePost] = useState(false);
-
   return (
     <ButtomTabs.Navigator
+      screenOptions={({ route }) => ({
+        tabBarStyle: {
+          // paddingVertical: 8,
+          paddingHorizontal: 82,
+          alignItems: 'center',
+        },
+      })}
       tabBarOptions={{
         showLabel: false,
-        // activeTintColor: 'tomato',
-        // inactiveTintColor: 'gray',
+        activeTintColor: '#ff6c00',
+        inactiveTintColor: 'rgba(33, 33, 33, 0.8)',
       }}
     >
-      {isCreatePost ? (
-        <ButtomTabs.Screen
-          name="CreatePosts"
-          component={PostScreen}
-          options={({ navigation }) => ({
-            ...postsOptions,
-            headerRight: () => (
-              <SvgLogOut
-                onPress={() => navigation.navigate('Login')}
-                title="Return back"
-                color="#fff"
-                style={styles.logOut}
-              />
-            ),
-            tabBarIcon: () => {
-              return (
-                <SvgGrid
-                  onPress={() => {
-                    navigation.navigate('Posts');
-                    setIsCreatePost(false);
-                  }}
-                />
-              );
-            },
-          })}
-        />
-      ) : (
-        <>
-          <ButtomTabs.Screen
-            name="Posts"
-            component={PostScreen}
-            options={({ navigation }) => ({
-              ...postsOptions,
-              headerRight: () => (
-                <SvgLogOut
-                  onPress={() => navigation.navigate('Login')}
-                  title="Return back"
-                  color="#fff"
-                  style={styles.logOut}
-                />
-              ),
-              tabBarIcon: () => {
-                return <SvgGrid />;
-              },
-            })}
-          />
-          <ButtomTabs.Screen
-            name="CreatePosts"
-            component={CreatePostsScreen}
-            options={({ navigation, route }) => ({
-              ...createPostsOptions,
-              headerLeft: () => (
-                <SvgArrowLeft
-                  onPress={() => {
-                    navigation.navigate('Posts');
-                    setIsCreatePost(true);
-                  }}
-                  title="Return back"
-                  color="#fff"
-                  style={styles.arrowLeft}
-                />
-              ),
-              tabBarIcon: () => {
-                return <SvgPlus fill={route.name === 'CreatePosts' ? '#000000' : '#ffffff'} />;
-              },
-            })}
-          />
-          <ButtomTabs.Screen
-            name="Profile"
-            component={ProfileScreen}
-            options={({ navigation }) => ({
-              ...createPostsOptions,
-              headerLeft: () => (
-                <SvgArrowLeft
-                  onPress={() => navigation.navigate('Posts')}
-                  title="Return back"
-                  color="#fff"
-                  style={styles.arrowLeft}
-                />
-              ),
-              tabBarIcon: ({ focused, color, size }) => {
-                return <SvgUser size={size} color={color} />;
-              },
-            })}
-          />
-        </>
-      )}
+      <ButtomTabs.Screen
+        name="Posts"
+        component={PostScreen}
+        options={({ navigation }) => ({
+          ...postsOptions,
+          headerRight: () => (
+            <SvgLogOut
+              onPress={() => navigation.navigate('Login')}
+              title="Return back"
+              color="#fff"
+              style={styles.logOut}
+            />
+          ),
+          tabBarButton: props => <TouchableOpacity {...props} style={styles.btnTab} />,
+          tabBarIcon: ({ color }) => {
+            return <SvgGrid stroke={color} />;
+          },
+        })}
+      />
+      <ButtomTabs.Screen
+        name="CreatePosts"
+        component={CreatePostsScreen}
+        options={({ navigation, route }) => ({
+          ...createPostsOptions,
+          headerLeft: () => (
+            <SvgArrowLeft
+              onPress={() => {
+                navigation.navigate('Posts');
+                setIsCreatePost(true);
+              }}
+              title="Return back"
+              color="#fff"
+              style={styles.arrowLeft}
+            />
+          ),
+          tabBarButton: props => <TouchableOpacity {...props} style={styles.btnActiveTab} />,
+          tabBarIcon: ({ color }) => {
+            return <SvgPlus fill={color} />;
+          },
+        })}
+      />
+      <ButtomTabs.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={({ navigation }) => ({
+          ...createPostsOptions,
+          headerLeft: () => (
+            <SvgArrowLeft
+              onPress={() => navigation.navigate('Posts')}
+              title="Return back"
+              color="#fff"
+              style={styles.arrowLeft}
+            />
+          ),
+          tabBarButton: props => (
+            <TouchableOpacity {...props} style={{ ...styles.btnTab, marginRight: 0 }} />
+          ),
+          tabBarIcon: ({ focused, color, size }) => {
+            return <SvgUser size={size} fill={color} />;
+          },
+        })}
+      />
     </ButtomTabs.Navigator>
   );
 };
@@ -138,13 +118,27 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 16,
     paddingVertical: 10,
   },
-  btnTabs: {
+  btnTab: {
     alignSelf: 'center',
+    marginRight: 30,
+    width: 40,
+    height: 40,
+
+    padding: 8,
+
+    backgroundColor: '#ffffff',
+  },
+  btnActiveTab: {
+    alignSelf: 'center',
+    marginRight: 30,
+
+    width: 70,
+    height: 40,
 
     paddingVertical: 8,
     paddingHorizontal: 23,
 
-    backgroundColor: '#F6F6F6',
+    backgroundColor: '#ff6c00',
     borderRadius: 20,
   },
 });
