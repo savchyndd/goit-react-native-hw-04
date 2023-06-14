@@ -62,7 +62,12 @@ const CreatePostsScreen = () => {
   };
   return (
     <TouchableWithoutFeedback onPress={handleKeyboardHide}>
-      <View style={styles.container}>
+      <View
+        style={{
+          ...styles.container,
+          justifyContent: isShowKeyboard ? 'center' : 'flex-start',
+        }}
+      >
         <View style={styles.loadWrapper}>
           <ImageBackground style={styles.bgImage} source={postImg}>
             <TouchableOpacity
@@ -153,7 +158,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
 
     resizeMode: 'cover',
-    justifyContent: 'center',
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },
@@ -167,7 +171,7 @@ const styles = StyleSheet.create({
 
     height: 240,
     maxHeight: 240,
-    maxWidth: 342,
+    Width: 342,
 
     marginBottom: 8,
 

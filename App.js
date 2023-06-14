@@ -16,7 +16,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <MainStack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+        <MainStack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
           <MainStack.Screen name="Regestration" component={RegistrationScreen} />
           <MainStack.Screen name="Login" component={LoginScreen} />
           <MainStack.Screen name="Home" component={Home} />

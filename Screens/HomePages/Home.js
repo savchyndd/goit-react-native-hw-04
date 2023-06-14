@@ -19,20 +19,22 @@ const ButtomTabs = createBottomTabNavigator();
 const Home = () => {
   return (
     <ButtomTabs.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         tabBarStyle: {
           height: 64,
           paddingTop: 10,
           paddingBottom: 20,
-          paddingHorizontal: 82,
+          // paddingHorizontal: 82,
 
           alignItems: 'center',
+          alignContent: 'center',
+          justifyContent: 'center',
         },
       })}
       tabBarOptions={{
         showLabel: false,
-        activeTintColor: '#ff6c00',
-        inactiveTintColor: 'rgba(33, 33, 33, 0.8)',
+        activeTintColor: '#ffffff',
+        inactiveTintColor: '#212121',
       }}
     >
       <ButtomTabs.Screen
@@ -48,7 +50,15 @@ const Home = () => {
               style={styles.logOut}
             />
           ),
-          tabBarButton: (props, route) => <TouchableOpacity {...props} style={styles.btnTab} />,
+          tabBarButton: props => (
+            <TouchableOpacity
+              {...props}
+              style={{
+                ...styles.btnTab,
+                backgroundColor: props.accessibilityState.selected ? '#ff6c00' : 'transparent',
+              }}
+            />
+          ),
           tabBarIcon: ({ color }) => {
             return <SvgGrid stroke={color} />;
           },
@@ -70,7 +80,15 @@ const Home = () => {
               style={styles.arrowLeft}
             />
           ),
-          tabBarButton: props => <TouchableOpacity {...props} style={styles.btnActiveTab} />,
+          tabBarButton: props => (
+            <TouchableOpacity
+              {...props}
+              style={{
+                ...styles.btnTab,
+                backgroundColor: props.accessibilityState.selected ? '#ff6c00' : 'transparent',
+              }}
+            />
+          ),
           tabBarIcon: ({ color }) => {
             return <SvgPlus fill={color} />;
           },
@@ -89,7 +107,16 @@ const Home = () => {
               style={styles.arrowLeft}
             />
           ),
-          tabBarButton: props => <TouchableOpacity {...props} />,
+          tabBarButton: props => (
+            <TouchableOpacity
+              {...props}
+              style={{
+                ...styles.btnTab,
+                backgroundColor: props.accessibilityState.selected ? '#ff6c00' : 'transparent',
+                marginRight: 0,
+              }}
+            />
+          ),
           tabBarIcon: ({ focused, color, size }) => {
             return <SvgUser size={size} fill={color} />;
           },
@@ -98,6 +125,8 @@ const Home = () => {
     </ButtomTabs.Navigator>
   );
 };
+
+export default Home;
 
 const styles = StyleSheet.create({
   // container: {
@@ -129,24 +158,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
 
     backgroundColor: '#ffffff',
-    borderRadius: 0,
-  },
-  btnActiveTab: {
-    alignSelf: 'center',
-    marginRight: 30,
-
-    width: 70,
-    height: 40,
-
-    paddingVertical: 8,
-    paddingHorizontal: 23,
-
-    backgroundColor: '#ff6c00',
     borderRadius: 20,
   },
-});
+  // btnActiveTab: {
+  //   alignSelf: 'center',
+  //   marginRight: 30,
 
-export default Home;
+  //   width: 70,
+  //   height: 40,
+
+  //   paddingVertical: 8,
+  //   paddingHorizontal: 23,
+
+  //   backgroundColor: '#ff6c00',
+  //   borderRadius: 20,
+  // },
+});
 
 const createPostsOptions = {
   title: 'Створити публікацію',
