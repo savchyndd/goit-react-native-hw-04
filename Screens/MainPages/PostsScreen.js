@@ -7,10 +7,11 @@ const PostScreen = () => {
     <View style={styles.container}>
       <View style={styles.avatarWrapper}>
         <Image style={styles.avatarImg} />
-        <Text style={styles.avatarName}>Natali Romanova</Text>
-        <Text style={styles.avatarEmail}>email@example.com</Text>
+        <View>
+          <Text style={styles.avatarName}>Natali Romanova</Text>
+          <Text style={styles.avatarEmail}>email@example.com</Text>
+        </View>
       </View>
-      <Text>Posts list</Text>
       <View style={styles.navTabs}></View>
     </View>
   );
@@ -26,10 +27,36 @@ const styles = StyleSheet.create({
     paddingVertical: 32,
 
     backgroundColor: '#fff',
+  },
+  avatarWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  avatarImg: {
+    width: 60,
+    height: 60,
 
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    marginRight: 8,
+
+    backgroundColor: '#f6f6f6',
+    borderRadius: 16,
+  },
+  avatarName: {
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    fontSize: 13,
+    lineHeight: 15,
+
+    color: '#212121',
+  },
+  avatarEmail: {
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: 11,
+    lineHeight: 13,
+
+    color: 'rgba(33, 33, 33, 0.8)',
   },
 });

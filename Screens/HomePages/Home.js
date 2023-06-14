@@ -21,8 +21,11 @@ const Home = () => {
     <ButtomTabs.Navigator
       screenOptions={({ route }) => ({
         tabBarStyle: {
-          // paddingVertical: 8,
+          height: 64,
+          paddingTop: 10,
+          paddingBottom: 20,
           paddingHorizontal: 82,
+
           alignItems: 'center',
         },
       })}
@@ -45,7 +48,7 @@ const Home = () => {
               style={styles.logOut}
             />
           ),
-          tabBarButton: props => <TouchableOpacity {...props} style={styles.btnTab} />,
+          tabBarButton: (props, route) => <TouchableOpacity {...props} style={styles.btnTab} />,
           tabBarIcon: ({ color }) => {
             return <SvgGrid stroke={color} />;
           },
@@ -76,7 +79,7 @@ const Home = () => {
       <ButtomTabs.Screen
         name="Profile"
         component={ProfileScreen}
-        options={({ navigation }) => ({
+        options={({ navigation, route }) => ({
           ...createPostsOptions,
           headerLeft: () => (
             <SvgArrowLeft
@@ -86,9 +89,7 @@ const Home = () => {
               style={styles.arrowLeft}
             />
           ),
-          tabBarButton: props => (
-            <TouchableOpacity {...props} style={{ ...styles.btnTab, marginRight: 0 }} />
-          ),
+          tabBarButton: props => <TouchableOpacity {...props} />,
           tabBarIcon: ({ focused, color, size }) => {
             return <SvgUser size={size} fill={color} />;
           },
@@ -124,9 +125,11 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
 
-    padding: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 8,
 
     backgroundColor: '#ffffff',
+    borderRadius: 0,
   },
   btnActiveTab: {
     alignSelf: 'center',
