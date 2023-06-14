@@ -30,10 +30,19 @@
 16. В хедері на екрані `PostsScreen` додати іконку для `logout`.
 17. Стилізувати нижню навігацію.
 
-- [Макет компонента `PostsScreen` без контенту](<https://www.figma.com/file/YqWLNarVE4x1zkXa6PYJfi/Homework-(Copy)-(Copy)?node-id=12-47>).
+- [Макет компонента `PostsScreen` без контенту](<https://www.figma.com/file/YqWLNarVE4x1zkXa6PYJfi/Homework-(Copy)-(Copy)?node-id=12-47&width="200"&height="420">).
 - [Макет компонента `PostsScreen` з постами](<https://www.figma.com/file/YqWLNarVE4x1zkXa6PYJfi/Homework-(Copy)-(Copy)?node-id=36-86&t=zLy5KtBgsPgUDWY3-0>)
 - [Макет компонента `CreatePostsScreen` при переході на компонент](<https://www.figma.com/file/YqWLNarVE4x1zkXa6PYJfi/Homework-(Copy)-(Copy)?node-id=36-13&t=4MUcNtbjSdtiKXV7-0>)
 - [Макет компонента `ProfileScreen`](<https://www.figma.com/file/YqWLNarVE4x1zkXa6PYJfi/Homework-(Copy)-(Copy)?node-id=36-13&t=kFkFeqKaLVknGboO-0>)
 - [Інтерактивний приклад навігації в застосунку](<https://www.figma.com/file/YqWLNarVE4x1zkXa6PYJfi/Homework-(Copy)-(Copy)?node-id=36-86&t=YKQMU635gnlpvN39-0>)
 
 #### Результат
+<div style="display: flex; flex-direction: row; flex-wrap:wrap; gap:20px">
+<img src="https://github.com/savchyndd/goit-react-native-hw-04/assets/96209694/77a9e6d9-4baa-40d0-9687-31b6e3288758"  width="200" height="380">
+<img src="https://github.com/savchyndd/goit-react-native-hw-04/assets/96209694/933703bc-2f4f-45ff-a5e3-14555ded5d99"  width="200" height="380">
+<img src="https://github.com/savchyndd/goit-react-native-hw-04/assets/96209694/97c6405b-e91c-4f28-b97a-7b5b35f83f73"  width="200" height="380">
+<img src="https://github.com/savchyndd/goit-react-native-hw-04/assets/96209694/ae4db347-b02c-416f-ae7f-9f33413696b3"  width="200" height="380">
+<img src="https://github.com/savchyndd/goit-react-native-hw-04/assets/96209694/ec86aa33-9158-4a76-9c92-704342df1049"  width="200" height="380">
+<img src="https://github.com/savchyndd/goit-react-native-hw-04/assets/96209694/e53b6379-1606-495b-a533-04492c5af8aa"  width="200" height="380">
+<img src="https://github.com/savchyndd/goit-react-native-hw-04/assets/96209694/51442bcb-3328-4ec7-8bd4-a27200f300f6"  width="200" height="380">
+</div>
