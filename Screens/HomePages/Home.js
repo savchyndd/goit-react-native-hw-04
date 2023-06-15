@@ -24,7 +24,6 @@ const Home = () => {
           height: 64,
           paddingTop: 10,
           paddingBottom: 20,
-          // paddingHorizontal: 82,
 
           alignItems: 'center',
           alignContent: 'center',
@@ -33,7 +32,7 @@ const Home = () => {
       })}
       tabBarOptions={{
         showLabel: false,
-        activeTintColor: '#ffffff',
+        activeTintColor: '#ff6c00',
         inactiveTintColor: '#212121',
       }}
     >
@@ -50,15 +49,7 @@ const Home = () => {
               style={styles.logOut}
             />
           ),
-          tabBarButton: props => (
-            <TouchableOpacity
-              {...props}
-              style={{
-                ...styles.btnTab,
-                backgroundColor: props.accessibilityState.selected ? '#ff6c00' : 'transparent',
-              }}
-            />
-          ),
+          tabBarButton: props => <TouchableOpacity {...props} style={styles.btnTab} />,
           tabBarIcon: ({ color }) => {
             return <SvgGrid stroke={color} />;
           },
@@ -73,7 +64,6 @@ const Home = () => {
             <SvgArrowLeft
               onPress={() => {
                 navigation.navigate('Posts');
-                setIsCreatePost(true);
               }}
               title="Return back"
               color="#fff"
@@ -85,12 +75,12 @@ const Home = () => {
               {...props}
               style={{
                 ...styles.btnTab,
-                backgroundColor: props.accessibilityState.selected ? '#ff6c00' : 'transparent',
+                backgroundColor: '#ff6c00',
               }}
             />
           ),
-          tabBarIcon: ({ color }) => {
-            return <SvgPlus fill={color} />;
+          tabBarIcon: () => {
+            return <SvgPlus fill={'#ffffff'} />;
           },
         })}
       />
@@ -112,7 +102,6 @@ const Home = () => {
               {...props}
               style={{
                 ...styles.btnTab,
-                backgroundColor: props.accessibilityState.selected ? '#ff6c00' : 'transparent',
                 marginRight: 0,
               }}
             />
